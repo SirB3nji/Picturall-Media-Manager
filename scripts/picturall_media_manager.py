@@ -1,7 +1,15 @@
+#Script Made by Benji
+#Version 1.01
+
 from ftplib import FTP
 import os
+import subprocess
 import time
 import progressbar
+import pyautogui
+import paramiko
+
+
 
 folder_media = "C:/Users/benjamin.cherchi/OneDrive - Analog Way SAS/Bureau/Projet_Stage/default_media/"
 dest_ml = "C:/Users/benjamin.cherchi/OneDrive - Analog Way SAS/Bureau/Projet_Stage/misc/"
@@ -54,7 +62,7 @@ def ftp_login_default():
         print("\nInstallation des médias terminés !")
         ftp.cwd('../../server/system')
 
-        print("Placement des médias dans la collection 255 'PMM' ")
+        print("\nPlacement des médias dans la collection 255 'PMM' ")
         
         ftp.delete("media_library.xml")
 
@@ -64,6 +72,25 @@ def ftp_login_default():
         ftp.storbinary('STOR media_library.xml', file)     # send the file
         file.close()                                    # close file and FTP
         ftp.quit()
+
+        input("\nAppuyer sur Enter pour redémarrer le Picturall")
+
+        for i in progressbar.progressbar(range(100)):
+            time.sleep(0.01)
+
+        
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect('192.168.2.161', username='root', password='picturall')
+        stdin, stdout, stderr = client.exec_command("reboot")
+        client.close()
+
+
+        return main()
+        
+        
+
+
         
 
 
@@ -89,7 +116,6 @@ def ftp_login_default():
 
 def ftp_login_edited():
     return main()
-
 
 
 main()
