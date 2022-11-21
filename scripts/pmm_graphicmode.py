@@ -239,7 +239,7 @@ def secondwindows():
         keyboard.write("wait_startup")
         keyboard.press("enter")
         time.sleep(0.2)
-        for x in range(1, 9):   #remove source
+        for x in range(1, 9):   
             time.sleep(1.5)
             keyboard.write("set source"+str(x)+" control play_state_req=6")
             keyboard.press("enter")
@@ -270,7 +270,7 @@ def secondwindows():
         keyboard.write("wait_startup")
         keyboard.press("enter")
         time.sleep(0.2)
-        for x in range(1, 9):   #remove source
+        for x in range(1, 9):   
             time.sleep(1.5)
             keyboard.write("set source"+str(x)+" control play_state_req=5")
             keyboard.press("enter")
