@@ -1,3 +1,5 @@
+#Script Made by Benji
+
 from tkinter import *
 from tkinter import messagebox
 from ftplib import FTP

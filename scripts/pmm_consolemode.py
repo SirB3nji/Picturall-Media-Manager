@@ -1,5 +1,4 @@
 #Script Made by Benji
-#Version 1.01
 
 from ftplib import FTP
 import os
