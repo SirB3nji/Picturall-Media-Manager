@@ -59,7 +59,7 @@ def secondwindows():
         
 
         
-        folder_media = "C:/Users/benjamin.cherchi/OneDrive - Analog Way SAS/Bureau/Projet_Stage/default_media/"
+        folder_media = "default_media/"
         dest_ml = "misc/"
 
         ftp = FTP('192.168.2.161') 
@@ -275,7 +275,7 @@ def secondwindows():
             keyboard.write("set source"+str(x)+" control play_state_req=5")
             keyboard.press("enter")
             time.sleep(1.5)
-            keyboard.write("set source"+str(x)+" selection slot=0,collection=255")
+            keyboard.write("set source"+str(x)+" selection slot="+str(x)+",collection=255")
             keyboard.press("enter")
             print("source "+str(x)+" done !")
         keyboard.press("ctrl")
