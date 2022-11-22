@@ -31,6 +31,33 @@ root.config(background='#014976')
 
 root.iconbitmap('misc/logo.ico')
 
+ip_picturall = '192.168.2.161'
+
+global iplabel
+
+iplabel = Label(root, text=ip_picturall, font=('misc/Inter-Black.ttf', 15,'bold'), background='#014976', foreground='white')
+iplabel.place(x=1, y=372)
+
+def cmd_ippic_btn():
+    global ip_picturall
+    global promptpicip
+    global iplabel
+    promptpicip = pyautogui.prompt("Picturall IP ? ")  
+    ip_picturall = promptpicip
+    root.update_idletasks()
+    iplabel.destroy()
+    iplabel = Label(root, text=ip_picturall, font=('misc/Inter-Black.ttf', 15,'bold'), background='#014976', foreground='white')
+    iplabel.place(x=1, y=372)   
+    print("Picturall IP updated => " + promptpicip)
+
+picipimg = PhotoImage(file='misc/ipimg.png')
+picipimg_btn = Button(root, image=picipimg, border=0, bg='#014976', fg='#014976', activebackground='#014976', activeforeground='#014976', command=cmd_ippic_btn)
+picipimg_btn.place(x=740, y=1)
+
+
+
+
+
 
 
 
@@ -64,7 +91,7 @@ def secondwindows():
         folder_media = "default_media/"
         dest_ml = "misc/"
 
-        ftp = FTP('192.168.2.161') 
+        ftp = FTP(ip_picturall) 
         ftp.login(user='picmedia', passwd = 'aidemcip')
         ftp.cwd('picturall/media')
 
@@ -109,7 +136,7 @@ def secondwindows():
 
         os.system("start cmd")
         time.sleep(1)
-        keyboard.write("telnet 192.168.2.161 11000")
+        keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
         time.sleep(1)
         keyboard.write("wait_startup")
@@ -147,7 +174,7 @@ def secondwindows():
 
 
     def function_trashmdi_btn():   
-        ftp = FTP('192.168.2.161') 
+        ftp = FTP(ip_picturall) 
         ftp.login(user='picmedia', passwd = 'aidemcip')
         ftp.cwd('picturall/media')
 
@@ -160,7 +187,7 @@ def secondwindows():
 
         os.system("start cmd")
         time.sleep(1)
-        keyboard.write("telnet 192.168.2.161 11000")
+        keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
         time.sleep(1)
         keyboard.write("wait_startup")
@@ -205,7 +232,7 @@ def secondwindows():
     def function_playmdi_btn():
         os.system("start cmd")
         time.sleep(1)
-        keyboard.write("telnet 192.168.2.161 11000")
+        keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
         time.sleep(1)
         keyboard.write("wait_startup")
@@ -235,7 +262,7 @@ def secondwindows():
     def function_stopmdi_btn():
         os.system("start cmd")
         time.sleep(1)
-        keyboard.write("telnet 192.168.2.161 11000")
+        keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
         time.sleep(1)
         keyboard.write("wait_startup")
@@ -266,7 +293,7 @@ def secondwindows():
     def function_pausemdi_btn():
         os.system("start cmd")
         time.sleep(1)
-        keyboard.write("telnet 192.168.2.161 11000")
+        keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
         time.sleep(1)
         keyboard.write("wait_startup")
@@ -297,7 +324,7 @@ def secondwindows():
     def function_rebootpic_btn():
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect('192.168.2.161', username='root', password='picturall')
+        client.connect(ip_picturall, username='root', password='picturall')
         stdin, stdout, stderr = client.exec_command("reboot")
         client.close()
         notification.notify(title = 'Picurall Media Manager', message = 'The Picturall reboot!', app_icon = 'misc/logo.ico', timeout = 2)
@@ -327,6 +354,8 @@ def secondwindows():
 
 
 
+
+    
 
 
     dwnldmdi = PhotoImage(file='misc/download.png')
@@ -382,5 +411,8 @@ quit_btn.place(x=378, y=220)
 
 quit_label = Label(root, text='quit.', font=('misc/Inter-Black.ttf', 16,'bold'), background='#014976', foreground='white')
 quit_label.place(x=382, y=280)
+
+
+
 
 mainloop()
