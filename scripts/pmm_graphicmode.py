@@ -142,6 +142,10 @@ def secondwindows():
         keyboard.write("wait_startup")
         keyboard.press("enter")
         time.sleep(1)
+        print("canva setup")
+        keyboard.write("set canvas1 position8 x=0.0,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position1 x=0.25,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position2 x=0.5,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position3 x=0.75,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position4 x=0.0,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position5 x=0.25,y=0.359375,w=0.25,h=0.140625,rotation=0.0,enabled=1\nset canvas1 position6 x=0.5,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position7 x=0.75,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\ntransaction begin\nset canvas1 grouping8 column=0,row=0,group=1\nset canvas1 grouping1 column=1,row=0,group=1\nset canvas1 grouping2 column=2,row=0,group=1\nset canvas1 grouping3 column=3,row=0,group=1\nset canvas1 grouping4 column=0,row=1,group=1\nset canvas1 grouping5 column=1,row=1,group=1\nset canvas1 grouping6 column=2,row=1,group=1\nset canvas1 grouping7 column=3,row=1,group=1\ntransaction commit\nset canvas1 display_focus display=0\nset gpu1 pixel_space w=7680,h=2400,max_size=35.0\nset gpu2 pixel_space w=7680,h=2400,max_size=35.0")
+        keyboard.press("enter")
+        time.sleep(2.5)
         keyboard.write("set source1 selection slot=1,collection=255\nset source2 selection slot=2,collection=255\nset source3 selection slot=3,collection=255\nset source4 selection slot=4,collection=255\nset source5 selection slot=5,collection=255\nset source6 selection slot=6,collection=255\nset source7 selection slot=7,collection=255\nset source8 selection slot=8,collection=255")
         keyboard.press("enter")
         time.sleep(1.5)
@@ -149,6 +153,11 @@ def secondwindows():
         keyboard.press("enter")
         print("source done !")
         time.sleep(1.5)
+        keyboard.write("fullscreen layer1 1 stretch\nfullscreen layer2 2 stretch\nfullscreen layer3 3 stretch\nfullscreen layer4 4 stretch\nfullscreen layer5 5 stretch\nfullscreen layer6 6 stretch\nfullscreen layer7 7 stretch\nfullscreen layer8 8 stretch")
+        keyboard.press("enter")
+        print("canva setup done!")
+        time.sleep(1.5)
+        print("full setup done! exit..")
         keyboard.press("ctrl")
         keyboard.press("$")
         keyboard.release("ctrl")
@@ -161,12 +170,7 @@ def secondwindows():
         keyboard.press("enter")
 
         notification.notify(title = 'Picurall Media Manager', message = 'Medias download is finished!', app_icon = 'misc/logo.ico', timeout = 3)
-        messagebox.showinfo(title="PMM - INFO", message="Press 'OK' for reboot the Picturall.")
-
-
         
-
-        notification.notify(title = 'Picurall Media Manager', message = 'The picturall restart!', app_icon = 'misc/logo.ico', timeout = 10)
 
 
 
@@ -197,7 +201,7 @@ def secondwindows():
         time.sleep(1.5)
         keyboard.write("set source1 selection slot=0,collection=255\nset source2 selection slot=0,collection=255\nset source3 selection slot=0,collection=255\nset source4 selection slot=0,collection=255\nset source5 selection slot=0,collection=255\nset source6 selection slot=0,collection=255\nset source7 selection slot=0,collection=255\nset source8 selection slot=0,collection=255")
         keyboard.press("enter")
-        print("source "+str(x)+" done !")
+        print("source done !")
         time.sleep(1.5)
         keyboard.press("ctrl")
         keyboard.press("$")
