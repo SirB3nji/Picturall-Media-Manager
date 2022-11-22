@@ -12,6 +12,7 @@ import paramiko
 from plyer import notification
 import keyboard
 
+os.system('mode con: cols=100 lines=7')
 
 def clearoutput():
     os.system('cls')
@@ -31,7 +32,7 @@ root.config(background='#014976')
 
 root.iconbitmap('misc/logo.ico')
 
-ip_picturall = '192.168.2.161'
+ip_picturall = '192.168.2.140'  #default IP
 
 global iplabel
 
@@ -121,8 +122,8 @@ def secondwindows():
 
         print("\nPlacement des médias dans la collection 255 'PMM' ")
         
-        ftp.delete("media_library.xml")
 
+          
         time.sleep(0.5)
 
         file = open(dest_ml + "media_library.xml",'rb')                  # file to send
@@ -134,42 +135,18 @@ def secondwindows():
 
         secondwindows.wm_state('normal')
 
-        os.system("start cmd")
-        time.sleep(1)
-        keyboard.write("telnet "+ip_picturall+" 11000")
-        keyboard.press("enter")
-        time.sleep(1)
-        keyboard.write("wait_startup")
-        keyboard.press("enter")
-        time.sleep(1)
-        print("canva setup")
-        keyboard.write("set canvas1 position8 x=0.0,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position1 x=0.25,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position2 x=0.5,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position3 x=0.75,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position4 x=0.0,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position5 x=0.25,y=0.359375,w=0.25,h=0.140625,rotation=0.0,enabled=1\nset canvas1 position6 x=0.5,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position7 x=0.75,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\ntransaction begin\nset canvas1 grouping8 column=0,row=0,group=1\nset canvas1 grouping1 column=1,row=0,group=1\nset canvas1 grouping2 column=2,row=0,group=1\nset canvas1 grouping3 column=3,row=0,group=1\nset canvas1 grouping4 column=0,row=1,group=1\nset canvas1 grouping5 column=1,row=1,group=1\nset canvas1 grouping6 column=2,row=1,group=1\nset canvas1 grouping7 column=3,row=1,group=1\ntransaction commit\nset canvas1 display_focus display=0\nset gpu1 pixel_space w=7680,h=2400,max_size=35.0\nset gpu2 pixel_space w=7680,h=2400,max_size=35.0")
-        keyboard.press("enter")
-        time.sleep(2.5)
-        keyboard.write("set source1 selection slot=1,collection=255\nset source2 selection slot=2,collection=255\nset source3 selection slot=3,collection=255\nset source4 selection slot=4,collection=255\nset source5 selection slot=5,collection=255\nset source6 selection slot=6,collection=255\nset source7 selection slot=7,collection=255\nset source8 selection slot=8,collection=255")
-        keyboard.press("enter")
-        time.sleep(1.5)
-        keyboard.write("set source1 control play_state_req=0\nset source2 control play_state_req=0\nset source3 control play_state_req=0\nset source4 control play_state_req=0\nset source5 control play_state_req=0\nset source6 control play_state_req=0\nset source7 control play_state_req=0\nset source8 control play_state_req=0")
-        keyboard.press("enter")
-        print("source done !")
-        time.sleep(1.5)
-        keyboard.write("fullscreen layer1 1 stretch\nfullscreen layer2 2 stretch\nfullscreen layer3 3 stretch\nfullscreen layer4 4 stretch\nfullscreen layer5 5 stretch\nfullscreen layer6 6 stretch\nfullscreen layer7 7 stretch\nfullscreen layer8 8 stretch")
-        keyboard.press("enter")
-        print("canva setup done!")
-        time.sleep(1.5)
-        print("full setup done! exit..")
-        keyboard.press("ctrl")
-        keyboard.press("$")
-        keyboard.release("ctrl")
-        keyboard.release("$")
-        keyboard.write("close")
-        keyboard.press("enter")
-        keyboard.write("quit")
-        keyboard.press("enter")
-        keyboard.write("exit")
-        keyboard.press("enter")
-
         notification.notify(title = 'Picurall Media Manager', message = 'Medias download is finished!', app_icon = 'misc/logo.ico', timeout = 3)
+
+        messagebox.showinfo(title="Picturall Media Manager", message="The Picturall need to reboot! Press 'OK' for reboot!")
+
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(ip_picturall, username='root', password='picturall')
+        stdin, stdout, stderr = client.exec_command("reboot")
+        client.close()
+        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall reboot!', app_icon = 'misc/logo.ico', timeout = 2)
+
+
         
 
 
@@ -228,6 +205,50 @@ def secondwindows():
 
         print("Suppression terminés !")
         notification.notify(title = 'Picurall Media Manager', message = 'Deleting completed medias.', app_icon = 'misc/logo.ico', timeout = 1)
+
+    def function_setupmdi_btn():
+        print("setup media started!")
+        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall setup media has been started!', app_icon = 'misc/logo.ico', timeout = 1.5)
+        os.system("start cmd")
+        time.sleep(1)
+        keyboard.write("telnet "+ip_picturall+" 11000")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.write("wait_startup")
+        keyboard.press("enter")
+        time.sleep(1)
+        print("canva setup")
+        keyboard.write("set canvas1 position8 x=0.0,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position1 x=0.25,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position2 x=0.5,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position3 x=0.75,y=0.5,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position4 x=0.0,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position5 x=0.25,y=0.359375,w=0.25,h=0.140625,rotation=0.0,enabled=1\nset canvas1 position6 x=0.5,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\nset canvas1 position7 x=0.75,y=0.34375,w=0.25,h=0.15625,rotation=0.0,enabled=1\ntransaction begin\nset canvas1 grouping8 column=0,row=0,group=1\nset canvas1 grouping1 column=1,row=0,group=1\nset canvas1 grouping2 column=2,row=0,group=1\nset canvas1 grouping3 column=3,row=0,group=1\nset canvas1 grouping4 column=0,row=1,group=1\nset canvas1 grouping5 column=1,row=1,group=1\nset canvas1 grouping6 column=2,row=1,group=1\nset canvas1 grouping7 column=3,row=1,group=1\ntransaction commit\nset canvas1 display_focus display=0\nset gpu1 pixel_space w=7680,h=2400,max_size=35.0\nset gpu2 pixel_space w=7680,h=2400,max_size=35.0")
+        keyboard.press("enter")
+        time.sleep(2.5)
+        keyboard.write("set source1 selection slot=1,collection=255\nset source2 selection slot=2,collection=255\nset source3 selection slot=3,collection=255\nset source4 selection slot=4,collection=255\nset source5 selection slot=5,collection=255\nset source6 selection slot=6,collection=255\nset source7 selection slot=7,collection=255\nset source8 selection slot=8,collection=255")
+        keyboard.press("enter")
+        time.sleep(1.5)
+        keyboard.write("set source1 control play_state_req=0\nset source2 control play_state_req=0\nset source3 control play_state_req=0\nset source4 control play_state_req=0\nset source5 control play_state_req=0\nset source6 control play_state_req=0\nset source7 control play_state_req=0\nset source8 control play_state_req=0")
+        keyboard.press("enter")
+        print("source done !")
+        time.sleep(1.5)
+        keyboard.write("fullscreen layer1 1 stretch\nfullscreen layer2 2 stretch\nfullscreen layer3 3 stretch\nfullscreen layer4 4 stretch\nfullscreen layer5 5 stretch\nfullscreen layer6 6 stretch\nfullscreen layer7 7 stretch\nfullscreen layer8 8 stretch")
+        keyboard.press("enter")
+        time.sleep(1.5)
+        keyboard.write("set canvas1 test_system_info enabled=0")
+        keyboard.press("enter")
+        print("canva setup done!")
+        time.sleep(1.5)
+        print("full setup done! exit..")
+        keyboard.press("ctrl")
+        keyboard.press("$")
+        keyboard.release("ctrl")
+        keyboard.release("$")
+        keyboard.write("close")
+        keyboard.press("enter")
+        keyboard.write("quit")
+        keyboard.press("enter")
+        keyboard.write("exit")
+        keyboard.press("enter")
+        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall setup is done!', app_icon = 'misc/logo.ico', timeout = 3)
+
+
 
 
     def function_playmdi_btn():
@@ -358,14 +379,22 @@ def secondwindows():
 
     trashmdi = PhotoImage(file='misc/trash.png')
     trashmdi_btn = Button(secondwindows, image=trashmdi, border=0, bg='#014976', fg='#014976', activebackground='#014976', activeforeground='#014976', command=function_trashmdi_btn)
-    trashmdi_btn.place(x=283, y=197)
+    trashmdi_btn.place(x=283, y=260)
 
     trash_label = Label(secondwindows, text="Delete Media.", font=('misc/Inter-Black.ttf', 20,'bold'), background='#014976', foreground='white')
-    trash_label.place(x=340, y=210)
+    trash_label.place(x=340, y=270)
 
     playmdi = PhotoImage(file="misc/playmdi.png")
     playmdi_btn = Button(secondwindows, image=playmdi, border=0, bg='#014976', fg='#014976', activebackground='#014976', activeforeground='#014976', command=function_playmdi_btn)
     playmdi_btn.place(x=10, y=340)
+
+    setupmdi = PhotoImage(file="misc/setupmedia.png")
+    setupmdi_btn = Button(secondwindows, image=setupmdi, border=0, bg='#014976', fg='#014976', activebackground='#014976', activeforeground='#014976', command=function_setupmdi_btn)
+    setupmdi_btn.place(x=290 ,y=175)
+
+    setupmdi_label = Label(secondwindows, text="Setup Media.", font=('misc/Inter-Black.ttf', 20,'bold'), background='#014976', foreground='white')
+    setupmdi_label.place(x=350, y=185)
+
 
     stopmdi = PhotoImage(file="misc/stopmdi.png")
     stopmdi_btn = Button(secondwindows, image=stopmdi, border=0, bg='#014976', fg='#014976', activebackground='#014976', activeforeground='#014976', command=function_stopmdi_btn)
