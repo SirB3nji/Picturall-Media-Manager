@@ -1,4 +1,9 @@
+# -*- coding: utf-8 -*-
+
 #Script Made by Benji
+#Version MACOS
+
+
 
 from tkinter import *
 from tkinter import messagebox
@@ -6,11 +11,11 @@ from ftplib import FTP
 import os
 import subprocess
 import time
-import progressbar
 import pyautogui
 import paramiko
-from plyer import notification
 import keyboard
+
+
 
 os.system('mode con: cols=100 lines=7')
 
@@ -98,25 +103,145 @@ def secondwindows():
 
         print(ftp.getwelcome())
 
-        notification.notify(title = 'Picurall Media Manager', message = 'You are connected to the Picturall.', app_icon = 'misc/logo.ico', timeout = 3)
-
+        
         ftp.mkd('default_media')
         ftp.cwd('default_media')
 
 
-        notification.notify(title = 'Picurall Media Manager', message = 'Medias are being uploaded!', app_icon = 'misc/logo.ico', timeout = 5)
-        for x in range(1, 33):
-            clearoutput()
-            print("Installation des medias en cours ... ")
+        
 
-            
+        clearoutput()
+        print("Installation des medias en cours ... ")
 
-            print("\n Téléchargement de => " + "media_ ("+str(x)+").mp4 \n")
+        
+        print("\n Téléchargement de média")
 
-            file = open(folder_media + "media_ ("+str(x)+").mp4",'rb')                 
-            ftp.storbinary('STOR media_ ('+str(x)+').mp4', file) 
-            for i in progressbar.progressbar(range(100)):
-                time.sleep(0.01)
+        
+        file = open(folder_media + "media_ (1).mp4",'rb')  
+        ftp.storbinary('STOR media_ (1).mp4', file)
+
+        file = open(folder_media + "media_ (2).mp4",'rb')  
+        ftp.storbinary('STOR media_ (2).mp4', file)
+        
+        file = open(folder_media + "media_ (3).mp4",'rb')  
+        ftp.storbinary('STOR media_ (3).mp4', file)
+        
+        file = open(folder_media + "media_ (4).mp4",'rb')  
+        ftp.storbinary('STOR media_ (4).mp4', file)
+        
+        file = open(folder_media + "media_ (5).mp4",'rb')  
+        ftp.storbinary('STOR media_ (5).mp4', file)
+        
+        file = open(folder_media + "media_ (6).mp4",'rb')  
+        ftp.storbinary('STOR media_ (6).mp4', file)
+        
+        file = open(folder_media + "media_ (7).mp4",'rb')  
+        ftp.storbinary('STOR media_ (7).mp4', file)
+        
+        file = open(folder_media + "media_ (8).mp4",'rb')  
+        ftp.storbinary('STOR media_ (8).mp4', file)
+        
+        file = open(folder_media + "media_ (9).mp4",'rb')  
+        ftp.storbinary('STOR media_ (9).mp4', file)
+        
+        file = open(folder_media + "media_ (10).mp4",'rb')  
+        ftp.storbinary('STOR media_ (10).mp4', file)
+        
+        file = open(folder_media + "media_ (11).mp4",'rb')  
+        ftp.storbinary('STOR media_ (11).mp4', file)
+        
+        file = open(folder_media + "media_ (12).mp4",'rb')  
+        ftp.storbinary('STOR media_ (12).mp4', file)
+        
+        file = open(folder_media + "media_ (13).mp4",'rb')  
+        ftp.storbinary('STOR media_ (13).mp4', file)
+        
+        file = open(folder_media + "media_ (14).mp4",'rb')  
+        ftp.storbinary('STOR media_ (14).mp4', file)
+        
+        file = open(folder_media + "media_ (15).mp4",'rb')  
+        ftp.storbinary('STOR media_ (15).mp4', file)
+        
+        file = open(folder_media + "media_ (16).mp4",'rb')  
+        ftp.storbinary('STOR media_ (16).mp4', file)
+        
+        file = open(folder_media + "media_ (17).mp4",'rb')  
+        ftp.storbinary('STOR media_ (17).mp4', file)
+        
+        file = open(folder_media + "media_ (18).mp4",'rb')  
+        ftp.storbinary('STOR media_ (18).mp4', file)
+        
+        file = open(folder_media + "media_ (19).mp4",'rb')  
+        ftp.storbinary('STOR media_ (19).mp4', file)
+        
+        file = open(folder_media + "media_ (20).mp4",'rb')  
+        ftp.storbinary('STOR media_ (20).mp4', file)
+        
+        file = open(folder_media + "media_ (21).mp4",'rb')  
+        ftp.storbinary('STOR media_ (21).mp4', file)
+        
+        file = open(folder_media + "media_ (22).mp4",'rb')  
+        ftp.storbinary('STOR media_ (22).mp4', file)
+        
+        file = open(folder_media + "media_ (23).mp4",'rb')  
+        ftp.storbinary('STOR media_ (23).mp4', file)
+        
+        file = open(folder_media + "media_ (24).mp4",'rb')  
+        ftp.storbinary('STOR media_ (24).mp4', file)
+        
+        file = open(folder_media + "media_ (25).mp4",'rb')  
+        ftp.storbinary('STOR media_ (25).mp4', file)
+        
+        file = open(folder_media + "media_ (26).mp4",'rb')  
+        ftp.storbinary('STOR media_ (26).mp4', file)
+        
+        file = open(folder_media + "media_ (27).mp4",'rb')  
+        ftp.storbinary('STOR media_ (27).mp4', file)
+        
+        file = open(folder_media + "media_ (28).mp4",'rb')  
+        ftp.storbinary('STOR media_ (28).mp4', file)
+        
+        file = open(folder_media + "media_ (29).mp4",'rb')  
+        ftp.storbinary('STOR media_ (29).mp4', file)
+        
+        file = open(folder_media + "media_ (30).mp4",'rb')  
+        ftp.storbinary('STOR media_ (30).mp4', file)
+        
+        file = open(folder_media + "media_ (31).mp4",'rb')  
+        ftp.storbinary('STOR media_ (31).mp4', file)
+        
+        file = open(folder_media + "media_ (32).mp4",'rb')  
+        ftp.storbinary('STOR media_ (32).mp4', file)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        print("media done!")
         print("\nInstallation des médias terminés !")
         ftp.cwd('../../server/system')
 
@@ -127,7 +252,9 @@ def secondwindows():
         time.sleep(0.5)
 
         file = open(dest_ml + "media_library.xml",'rb')                  # file to send
-        ftp.storbinary('STOR media_library.xml', file)     # send the file
+        ftp.storbinary('STOR media_library.xml', file) 
+        
+   # send the file
         file.close()                                    # close file and FTP
         ftp.quit()
 
@@ -135,8 +262,7 @@ def secondwindows():
 
         secondwindows.wm_state('normal')
 
-        notification.notify(title = 'Picurall Media Manager', message = 'Medias download is finished!', app_icon = 'misc/logo.ico', timeout = 3)
-
+        
         messagebox.showinfo(title="Picturall Media Manager", message="The Picturall need to reboot! Press 'OK' for reboot!")
 
         client = paramiko.SSHClient()
@@ -144,8 +270,7 @@ def secondwindows():
         client.connect(ip_picturall, username='root', password='picturall')
         stdin, stdout, stderr = client.exec_command("reboot")
         client.close()
-        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall reboot!', app_icon = 'misc/logo.ico', timeout = 2)
-
+        
 
         
 
@@ -158,13 +283,22 @@ def secondwindows():
         ftp.cwd('picturall/media')
 
         print(ftp.getwelcome())
-        notification.notify(title = 'Picurall Media Manager', message = 'You are connected to the Picturall.', app_icon = 'misc/logo.ico', timeout = 0.5)
         time.sleep(1)
-        notification.notify(title = 'Picurall Media Manager', message = 'Medias are being deleted!', app_icon = 'misc/logo.ico', timeout = 0.5)
-
+        
         
 
-        os.system("start cmd")
+        keyboard.press("cmd")
+        keyboard.press("space")
+        keyboard.release("cmd")
+        keyboard.release("space")
+        time.sleep(1)
+        keyboard.write("terminal")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.press("cmd")
+        keyboard.press("n")
+        keyboard.release("cmd")
+        keyboard.release("n")
         time.sleep(1)
         keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
@@ -181,21 +315,56 @@ def secondwindows():
         print("source done !")
         time.sleep(1.5)
         keyboard.press("ctrl")
-        keyboard.press("$")
+        keyboard.press("§")
         keyboard.release("ctrl")
-        keyboard.release("$")
+        keyboard.release("§")
         keyboard.write("close")
         keyboard.press("enter")
-        keyboard.write("quit")
-        keyboard.press("enter")
-        keyboard.write("exit")
+        keyboard.press("cmd")
+        keyboard.press("w")
+        keyboard.release("cmd")
+        keyboard.release("w")
+        time.sleep(1)
         keyboard.press("enter")
 
-        for i in progressbar.progressbar(range(100)):
-                time.sleep(0.01)
+
+        
         ftp.cwd('default_media')
-        for x in range(1, 33):
-            ftp.delete("media_ ("+str(x)+").mp4")
+        
+            
+        ftp.delete("media_ (1).mp4")
+        ftp.delete("media_ (2).mp4")
+        ftp.delete("media_ (3).mp4")
+        ftp.delete("media_ (4).mp4")
+        ftp.delete("media_ (5).mp4")
+        ftp.delete("media_ (6).mp4")
+        ftp.delete("media_ (7).mp4")
+        ftp.delete("media_ (8).mp4")
+        ftp.delete("media_ (9).mp4")
+        ftp.delete("media_ (10).mp4")
+        ftp.delete("media_ (11).mp4")
+        ftp.delete("media_ (12).mp4")
+        ftp.delete("media_ (13).mp4")
+        ftp.delete("media_ (14).mp4")
+        ftp.delete("media_ (15).mp4")
+        ftp.delete("media_ (16).mp4")
+        ftp.delete("media_ (17).mp4")
+        ftp.delete("media_ (18).mp4")
+        ftp.delete("media_ (19).mp4")
+        ftp.delete("media_ (20).mp4")
+        ftp.delete("media_ (21).mp4")
+        ftp.delete("media_ (22).mp4")
+        ftp.delete("media_ (23).mp4")
+        ftp.delete("media_ (24).mp4")
+        ftp.delete("media_ (25).mp4")
+        ftp.delete("media_ (26).mp4")
+        ftp.delete("media_ (27).mp4")
+        ftp.delete("media_ (28).mp4")
+        ftp.delete("media_ (29).mp4")
+        ftp.delete("media_ (30).mp4")
+        ftp.delete("media_ (31).mp4")
+        ftp.delete("media_ (32).mp4")
+        print("media delete!")
         ftp.cwd('../') 
         time.sleep(1)
         ftp.rmd('default_media')  
@@ -204,12 +373,23 @@ def secondwindows():
 
 
         print("Suppression terminés !")
-        notification.notify(title = 'Picurall Media Manager', message = 'Deleting completed medias.', app_icon = 'misc/logo.ico', timeout = 1)
+        
 
     def function_setupmdi_btn():
         print("setup media started!")
-        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall setup media has been started!', app_icon = 'misc/logo.ico', timeout = 1.5)
-        os.system("start cmd")
+        
+        keyboard.press("cmd")
+        keyboard.press("space")
+        keyboard.release("cmd")
+        keyboard.release("space")
+        time.sleep(1)
+        keyboard.write("terminal")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.press("cmd")
+        keyboard.press("n")
+        keyboard.release("cmd")
+        keyboard.release("n")
         time.sleep(1)
         keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
@@ -240,22 +420,51 @@ def secondwindows():
         time.sleep(1.5)
         print("full setup done! exit..")
         keyboard.press("ctrl")
-        keyboard.press("$")
+        keyboard.press("§")
         keyboard.release("ctrl")
-        keyboard.release("$")
+        keyboard.release("§")
         keyboard.write("close")
         keyboard.press("enter")
-        keyboard.write("quit")
+        keyboard.press("cmd")
+        keyboard.press("w")
+        keyboard.release("cmd")
+        keyboard.release("w")
+        time.sleep(1)
         keyboard.press("enter")
-        keyboard.write("exit")
-        keyboard.press("enter")
-        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall setup is done!', app_icon = 'misc/logo.ico', timeout = 3)
 
+
+
+        #dest_ml = "misc/"
+
+        #ftp = FTP(ip_picturall) 
+        #ftp.login(user='picmedia', passwd = 'aidemcip')
+        #ftp.cwd('picturall/server/system')
+
+
+
+        #file = open(dest_ml + "exported.show", 'rb')
+        #ftp.delete('exported.show')
+        #time.sleep(0.5)
+        #ftp.storbinary('STOR exported.show', file)    # send the file
+        #file.close()                                    # close file and FTP
+        #ftp.quit()
+        
 
 
 
     def function_playmdi_btn():
-        os.system("start cmd")
+        keyboard.press("cmd")
+        keyboard.press("space")
+        keyboard.release("cmd")
+        keyboard.release("space")
+        time.sleep(1)
+        keyboard.write("terminal")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.press("cmd")
+        keyboard.press("n")
+        keyboard.release("cmd")
+        keyboard.release("n")
         time.sleep(1)
         keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
@@ -270,20 +479,33 @@ def secondwindows():
         keyboard.press("enter")
         print("source done !")
         keyboard.press("ctrl")
-        keyboard.press("$")
+        keyboard.press("§")
         keyboard.release("ctrl")
-        keyboard.release("$")
+        keyboard.release("§")
         keyboard.write("close")
         keyboard.press("enter")
-        keyboard.write("quit")
-        keyboard.press("enter")
-        keyboard.write("exit")
+        keyboard.press("cmd")
+        keyboard.press("w")
+        keyboard.release("cmd")
+        keyboard.release("w")
+        time.sleep(1)
         keyboard.press("enter")
         print("the medias playback has started")
-        notification.notify(title = 'Picurall Media Manager', message = 'The medias playback has started.', app_icon = 'misc/logo.ico', timeout = 2)
+       
 
     def function_stopmdi_btn():
-        os.system("start cmd")
+        keyboard.press("cmd")
+        keyboard.press("space")
+        keyboard.release("cmd")
+        keyboard.release("space")
+        time.sleep(1) # put everywhere
+        keyboard.write("terminal")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.press("cmd")
+        keyboard.press("n")
+        keyboard.release("cmd")
+        keyboard.release("n")
         time.sleep(1)
         keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
@@ -296,21 +518,33 @@ def secondwindows():
         time.sleep(1.5)
         print("source done !")
         keyboard.press("ctrl")
-        keyboard.press("$")
+        keyboard.press("§")
         keyboard.release("ctrl")
-        keyboard.release("$")
+        keyboard.release("§")
         keyboard.write("close")
         keyboard.press("enter")
-        keyboard.write("quit")
-        keyboard.press("enter")
-        keyboard.write("exit")
+        keyboard.press("cmd")
+        keyboard.press("w")
+        keyboard.release("cmd")
+        keyboard.release("w")
+        time.sleep(1)
         keyboard.press("enter")
         print("the medias playback has stopped")
-        notification.notify(title = 'Picurall Media Manager', message = 'The medias playback has stopped.', app_icon = 'misc/logo.ico', timeout = 2)
-    
+            
 
     def function_pausemdi_btn():
-        os.system("start cmd")
+        keyboard.press("cmd")
+        keyboard.press("space")
+        keyboard.release("cmd")
+        keyboard.release("space")
+        time.sleep(1)
+        keyboard.write("terminal")
+        keyboard.press("enter")
+        time.sleep(1)
+        keyboard.press("cmd")
+        keyboard.press("n")
+        keyboard.release("cmd")
+        keyboard.release("n")
         time.sleep(1)
         keyboard.write("telnet "+ip_picturall+" 11000")
         keyboard.press("enter")
@@ -323,18 +557,19 @@ def secondwindows():
         time.sleep(1.5)
         print("source done !")
         keyboard.press("ctrl")
-        keyboard.press("$")
+        keyboard.press("§")
         keyboard.release("ctrl")
-        keyboard.release("$")
+        keyboard.release("§")
         keyboard.write("close")
         keyboard.press("enter")
-        keyboard.write("quit")
-        keyboard.press("enter")
-        keyboard.write("exit")
+        keyboard.press("cmd")
+        keyboard.press("w")
+        keyboard.release("cmd")
+        keyboard.release("w")
+        time.sleep(1)
         keyboard.press("enter")
         print("the medias playback has stopped")
-        notification.notify(title = 'Picurall Media Manager', message = 'The medias playback has paused.', app_icon = 'misc/logo.ico', timeout = 2)
-    
+            
 
     def function_rebootpic_btn():
         client = paramiko.SSHClient()
@@ -342,8 +577,7 @@ def secondwindows():
         client.connect(ip_picturall, username='root', password='picturall')
         stdin, stdout, stderr = client.exec_command("reboot")
         client.close()
-        notification.notify(title = 'Picurall Media Manager', message = 'The Picturall reboot!', app_icon = 'misc/logo.ico', timeout = 2)
-
+        
 
 
     dwnldmdi = PhotoImage(file='misc/download.png')

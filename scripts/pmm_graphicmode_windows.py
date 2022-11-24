@@ -1,4 +1,5 @@
 #Script Made by Benji
+#Windows Version
 
 from tkinter import *
 from tkinter import messagebox
@@ -127,7 +128,9 @@ def secondwindows():
         time.sleep(0.5)
 
         file = open(dest_ml + "media_library.xml",'rb')                  # file to send
-        ftp.storbinary('STOR media_library.xml', file)     # send the file
+        ftp.storbinary('STOR media_library.xml', file) 
+        
+   # send the file
         file.close()                                    # close file and FTP
         ftp.quit()
 
@@ -249,6 +252,23 @@ def secondwindows():
         keyboard.press("enter")
         keyboard.write("exit")
         keyboard.press("enter")
+
+
+
+        #dest_ml = "misc/"
+
+        #ftp = FTP(ip_picturall) 
+        #ftp.login(user='picmedia', passwd = 'aidemcip')
+        #ftp.cwd('picturall/server/system')
+
+
+
+        #file = open(dest_ml + "exported.show", 'rb')
+        #ftp.delete('exported.show')
+        #time.sleep(0.5)
+        #ftp.storbinary('STOR exported.show', file)    # send the file
+        #file.close()                                    # close file and FTP
+        #ftp.quit()
         notification.notify(title = 'Picurall Media Manager', message = 'The Picturall setup is done!', app_icon = 'misc/logo.ico', timeout = 3)
 
 
