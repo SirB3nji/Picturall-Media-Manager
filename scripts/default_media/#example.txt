@@ -1,2 +1,0 @@
-example of media name : media_ (1).mp4 / media_ (2).mp4
-default_media folder is limited with 64 videos.
